@@ -150,7 +150,7 @@ defmodule Gmex do
 
       [ executable | _ ] = image_struct.options
 
-      { image_data, status_code } = System.cmd executable, [ "identify", "-format", "width=%w,height=%h,size=%b,format=%m,quality=%Q", image_struct.image ], stderr_to_stdout: true
+      { image_data, status_code } = System.cmd executable, [ "identify", "-format", "width=%w,height=%h,size=%b,format=%m,quality=%Q", image_struct.image <> "[0]" ], stderr_to_stdout: true
 
       image_data = image_data
         |> String.replace( "\r", "" )

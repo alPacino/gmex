@@ -118,7 +118,7 @@ defmodule Gmex do
 
       [ executable | final_options ] = image_struct.options
 
-      final_options =  [ "convert" | [ image_struct.image | final_options ] ] ++ [ dest_path ]
+      final_options =  [ "convert" | [ image_struct.image <> "[0]" | final_options ] ] ++ [ dest_path ]
 
       { result, status_code } = System.cmd executable, final_options , stderr_to_stdout: true
 
